@@ -82,7 +82,7 @@ button{font:inherit;color:inherit;border:0;background:none;padding:0;cursor:poin
 #sky{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
 main,footer{position:relative;z-index:1}
 .wrap{max-width:1240px;margin:0 auto;padding-left:var(--gl);padding-right:var(--gr)}
-section{padding-block:96px}
+section{padding-block:64px}
 .h2{font-weight:800;font-size:clamp(36px,9vw,84px);line-height:.95;letter-spacing:-.045em;margin:0;text-wrap:balance}
 .lead{margin:14px 0 0;color:var(--muted);max-width:46ch;text-wrap:pretty}
 .grad{background:linear-gradient(100deg,var(--red),var(--orange));-webkit-background-clip:text;background-clip:text;color:transparent}
@@ -211,14 +211,14 @@ section{padding-block:96px}
 .svc-intro{margin-bottom:26px}
 .svc{--c:var(--red);position:relative;border-radius:var(--r);overflow:hidden;background:var(--fill);isolation:isolate;transition:background .4s}
 .svc:nth-child(2){--c:var(--orange)}.svc:nth-child(3){--c:var(--glow-soft)}.svc:nth-child(4){--c:var(--glow)}.svc:nth-child(5){--c:#C7B8FF}
-.svc-art{position:absolute;inset:0;z-index:-1;background:color-mix(in srgb,var(--c) 38%,#03050F);clip-path:circle(0% at calc(100% - 46px) 46px);transition:clip-path .9s cubic-bezier(.65,0,.2,1)}
-.svc-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;mix-blend-mode:screen;transform:scale(1.3);transition:transform 2.4s cubic-bezier(.2,1,.3,1)}
+.svc-art{position:absolute;inset:0;z-index:-1;background:color-mix(in srgb,var(--c) 38%,#03050F);clip-path:circle(0% at calc(100% - 46px) 46px);transition:clip-path .42s cubic-bezier(.5,0,.2,1)}
+.svc-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3;mix-blend-mode:screen;transform:scale(1.2);transition:transform .7s cubic-bezier(.2,1,.3,1)}
 .svc:nth-child(1) .svc-art img{object-position:85% 10%}
 .svc:nth-child(2) .svc-art img{object-position:20% 40%}
 .svc:nth-child(3) .svc-art img{object-position:60% 70%}
 .svc:nth-child(4) .svc-art img{object-position:10% 90%}
 .svc:nth-child(5) .svc-art img{object-position:90% 60%}
-.svc.open .svc-art img{transform:scale(1.05);animation:kb 22s ease-in-out 2.4s infinite alternate}
+.svc.open .svc-art img{transform:scale(1.05);animation:kb 22s ease-in-out .7s infinite alternate}
 @keyframes kb{to{transform:scale(1.2) translate(-3%,-2%)}}
 .svc-art::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(var(--shade),.55),rgba(var(--shade),0) 50%,rgba(var(--shade),.4))}
 .svc.open .svc-art{clip-path:circle(150% at calc(100% - 46px) 46px)}
@@ -230,10 +230,10 @@ section{padding-block:96px}
 .svc-plus::after{transform:rotate(90deg);transition:transform .4s}
 .svc.open .svc-plus{transform:rotate(180deg);background:var(--paper)}
 .svc.open .svc-plus::after{transform:rotate(0)}
-.svc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .6s cubic-bezier(.2,1,.3,1)}
+.svc-body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .36s cubic-bezier(.2,1,.3,1)}
 .svc.open .svc-body{grid-template-rows:1fr}
 .svc-body > div{overflow:hidden}
-.svc-body p{margin:0;padding:0 22px clamp(70px,20vw,120px);text-shadow:0 2px 16px rgba(var(--shade),.9);max-width:40ch;font-size:clamp(17px,4.4vw,22px);line-height:1.4;font-weight:500;color:#fff;opacity:0;transform:translateY(10px);transition:opacity .4s .1s,transform .5s .1s}
+.svc-body p{margin:0;padding:0 22px clamp(70px,20vw,120px);text-shadow:0 2px 16px rgba(var(--shade),.9);max-width:40ch;font-size:clamp(17px,4.4vw,22px);line-height:1.4;font-weight:500;color:#fff;opacity:0;transform:translateY(10px);transition:opacity .22s .05s,transform .3s .05s}
 .svc.open .svc-body p{opacity:1;transform:none}
 
 /* ---------- around the internet: signal rows ---------- */
@@ -306,14 +306,6 @@ section{padding-block:96px}
 
 /* ---------- contact ---------- */
 .contact-grid{display:grid;gap:36px}
-.gauge{display:flex;align-items:center;gap:16px;margin-top:22px}
-.fuel{position:relative;width:84px;height:84px;flex:none}
-.fuel svg{width:100%;height:100%;transform:rotate(-90deg)}
-.fuel circle{fill:none;stroke-width:7}
-.fuel .track{stroke:rgba(var(--tint),.1)}
-.fuel .fill{stroke:url(#fuelGrad);stroke-linecap:round;stroke-dasharray:264;stroke-dashoffset:264;transition:stroke-dashoffset .6s cubic-bezier(.2,1,.3,1)}
-.fuel b{position:absolute;inset:0;display:grid;place-items:center;font-weight:800;font-size:19px;font-variant-numeric:tabular-nums}
-.gauge span{font-size:14px;color:var(--muted)}
 .turn{margin:18px 0 0;font-size:12px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--glow-soft)}
 form{display:flex;flex-direction:column;gap:26px;padding:22px;border-radius:26px;background:var(--fill)}
 .field{display:flex;flex-direction:column;gap:12px;border:0;margin:0;padding:0;min-width:0}
@@ -349,14 +341,14 @@ fieldset.field legend{margin-bottom:12px}
 @keyframes fly{0%{opacity:1;transform:translate(var(--x0),var(--y0))}100%{opacity:0;transform:translate(calc(var(--x0) + 30vw),-20vh) rotate(-20deg) scale(.4)}}
 
 /* ---------- footer ---------- */
-footer{padding-block:80px calc(120px + var(--sb))}
-.mark{margin:0;display:flex;align-items:flex-start;font-weight:900;font-size:clamp(92px,28vw,340px);line-height:.8;letter-spacing:-.075em}
+footer{padding-block:56px calc(110px + var(--sb))}
+.mark{margin:0 0 clamp(18px,4vw,40px);display:flex;align-items:flex-start;font-weight:800;font-size:clamp(76px,22vw,300px);line-height:.85;letter-spacing:.04em;color:rgba(var(--tint),.13)}
 .mark span{display:inline-block;transition:transform .5s cubic-bezier(.2,1.7,.4,1),color .25s;cursor:default}
 .mark span:hover,.mark span.pop{color:var(--red);transform:translateY(-.08em) rotate(-5deg)}
 .mark span:nth-child(2):hover,.mark span:nth-child(2).pop{color:var(--orange);transform:translateY(-.12em) rotate(5deg)}
 .mark span:nth-child(3):hover,.mark span:nth-child(3).pop{color:var(--glow-soft)}
 .mark span:nth-child(4):hover,.mark span:nth-child(4).pop{color:var(--glow);transform:translateY(-.1em) rotate(6deg)}
-.mark sup{font-size:.16em;margin:.35em 0 0 .3em;letter-spacing:0}
+.mark sup{font-size:.16em;margin:.35em 0 0 0;letter-spacing:0;opacity:.6}
 .mail-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px}
 .mail{display:inline-flex;align-items:center;gap:10px;min-height:44px;font-weight:600;font-size:clamp(16px,4.2vw,20px);letter-spacing:-.03em;text-decoration:none;
   background:linear-gradient(100deg,var(--red),var(--orange)) 0 100% / 0 2px no-repeat;transition:background-size .5s cubic-bezier(.6,0,.2,1)}
@@ -370,8 +362,8 @@ footer{padding-block:80px calc(120px + var(--sb))}
 .legal{display:flex;flex-direction:column;gap:6px;margin-top:28px;font-size:14px;color:var(--muted)}
 /* the end: scroll into a black hole, come out at the top */
 #bh{position:fixed;inset:0;width:100%;height:100%;z-index:60;pointer-events:none;opacity:0;transition:opacity .9s ease}
-.end-intro{position:relative;z-index:61;min-height:80vh;min-height:80svh;display:grid;place-items:center;align-content:center;gap:18px;padding:0 var(--gr) 0 var(--gl);text-align:center}
-.end-zone{position:relative;height:220vh}
+.end-intro{position:relative;z-index:61;min-height:62vh;min-height:62svh;display:grid;place-items:center;align-content:center;gap:18px;padding:0 var(--gr) 0 var(--gl);text-align:center}
+.end-zone{position:relative;height:110vh}
 .endtext{margin:0;max-width:18ch;font-size:clamp(26px,7vw,64px);font-weight:800;line-height:1.02;letter-spacing:-.035em;text-wrap:balance;background:linear-gradient(180deg,var(--paper),#9fb2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
 .end-hint{margin:0;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);animation:bob 2.2s ease-in-out infinite}
 .end-top{display:none;min-height:48px;align-items:center;padding:0 22px;border-radius:999px;background:var(--fill-2);text-decoration:none;font-weight:700}
@@ -606,15 +598,10 @@ footer{padding-block:80px calc(120px + var(--sb))}
         <p class="lead">Have a project, an interesting idea, or just want to say hello?</p>
         <p class="lead">I'm always open to creative collaborations, freelance projects, and long-term partnerships.</p>
         <p class="turn">Your turn. Transmit a message.</p>
-        <div class="gauge" aria-hidden="true">
-          <div class="fuel">
-            <svg viewBox="0 0 100 100"><defs><linearGradient id="fuelGrad" x1="0" x2="1"><stop offset="0" stop-color="#E3302A"/><stop offset="1" stop-color="#FF6A2B"/></linearGradient></defs><circle class="track" cx="50" cy="50" r="42"/><circle class="fill" id="fuelFill" cx="50" cy="50" r="42"/></svg>
-            <b id="fuelNum">0/4</b>
-          </div>
-          <span id="fuelText">Fuel for the launch</span>
-        </div>
       </div>
       <form id="form" novalidate data-r>
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
+
         <div class="field" data-k="name"><label for="f-name"><b>01</b> — What's your name?</label><input id="f-name" name="name" type="text" required autocomplete="name" placeholder="Who's behind the screen?"></div>
         <div class="field" data-k="email"><label for="f-email"><b>02</b> — Where can I reach you?</label><input id="f-email" name="email" type="email" required autocomplete="email" inputmode="email" placeholder="Your email coordinates..."></div>
         <fieldset class="field" data-k="reason"><legend><b>03</b> — What's bringing you here?</legend>
@@ -638,7 +625,7 @@ footer{padding-block:80px calc(120px + var(--sb))}
 <footer>
   <div class="wrap">
     <p class="mark" id="mark" aria-label="GOOG®"><span aria-hidden="true">G</span><span aria-hidden="true">O</span><span aria-hidden="true">O</span><span aria-hidden="true">G</span><sup class="grad" aria-hidden="true">®</sup></p>
-    <div class="mail-row"><a class="mail" href="mailto:goog@googs.space"><span aria-hidden="true">✉</span> goog@googs.space</a></div>
+    <div class="mail-row"><a class="mail" href="mailto:goog@googs.space">goog@googs.space</a></div>
     <div class="foot-row">
       <div><h3>Independent Creative Designer.</h3><p>Making ideas visible, one experiment at a time.</p></div>
       <p class="socials"><a href="https://www.instagram.com/googbarseghyan/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@googbarseghyan/" target="_blank" rel="noopener">TikTok</a><a href="https://www.youtube.com/@googbarseghyan" target="_blank" rel="noopener">YouTube</a></p>
@@ -850,7 +837,7 @@ footer{padding-block:80px calc(120px + var(--sb))}
     function spawn() {
       const roll = Math.random(), type = roll < .14 ? 'face' : roll < .42 ? 'rock' : 'star';
       const r = R() * (type === 'face' ? 1.25 : type === 'rock' ? 1.1 : 1), dir = Math.random() < .5 ? -1 : 1;
-      const sp = (GH / 2.6) * (1 + (20 - left) / 22);
+      const sp = (GH / 1.75) * (1 + (20 - left) / 18);
       items.push({ type, r, x: Math.random() * (GW - 2 * r) + r, y: -r, vx: dir * sp * (.15 + Math.random() * .35), vy: sp * (.7 + Math.random() * .5), rot: Math.random() * 6, face: faces[Math.floor(Math.random() * 9)], trail: [] });
     }
     function burst(x, y, col, text) {
@@ -880,7 +867,7 @@ footer{padding-block:80px calc(120px + var(--sb))}
       g.clearRect(0, 0, GW, GH);
       if (playing) {
         left -= dt; elT.textContent = Math.max(0, Math.ceil(left));
-        spawnIn -= dt; if (spawnIn <= 0) { spawn(); spawnIn = Math.max(.28, .75 - (20 - left) * .02) * (.7 + Math.random() * .6); }
+        spawnIn -= dt; if (spawnIn <= 0) { spawn(); spawnIn = Math.max(.18, .5 - (20 - left) * .016) * (.7 + Math.random() * .6); }
         if (left <= 0) finish();
       }
       items = items.filter(it => {
@@ -985,16 +972,14 @@ footer{padding-block:80px calc(120px + var(--sb))}
   screen.addEventListener('click', e => { if (swiped) { e.preventDefault(); swiped = false; } });
   screen.addEventListener('dragstart', e => e.preventDefault());
 
-  /* ================= contact: fuel, then open the mail app ================= */
-  const form = $('#form'), fill = $('#fuelFill'), num = $('#fuelNum'), ftxt = $('#fuelText'), status = $('#status');
+  /* ================= contact: send through Formspree ================= */
+  const form = $('#form'), status = $('#status');
   const ok = {
     name: () => form.name.value.trim().length > 0,
     email: () => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email.value.trim()),
     reason: () => !!form.querySelector('input[name="reason"]:checked'),
     message: () => form.message.value.trim().length > 0,
   };
-  const fuel = () => { const n = Object.values(ok).filter(f => f()).length; fill.style.strokeDashoffset = 264 * (1 - n / 4); num.textContent = `${n}/4`; ftxt.textContent = n === 4 ? 'Ready for launch' : 'Fuel for the launch'; };
-  form.addEventListener('input', fuel); form.addEventListener('change', fuel);
   form.addEventListener('submit', e => {
     e.preventDefault();
     let bad = null;
@@ -1014,27 +999,34 @@ footer{padding-block:80px calc(120px + var(--sb))}
       rk.style.setProperty('--x0', (b.right - 56) + 'px'); rk.style.setProperty('--y0', b.top + 'px');
       rk.classList.remove('go'); void rk.offsetWidth; if (!reduce) rk.classList.add('go');
     };
-    const fallback = () => {
-      status.textContent = "Couldn't send it from here. ";
+    const fallback = why => {
+      status.textContent = (why ? why + ' ' : "Couldn't send it from here. ");
       const a = document.createElement('a'); a.href = mailto; a.textContent = 'Open your mail app instead'; status.appendChild(a); status.append('.');
     };
-    if (location.protocol === 'file:') { fallback(); return; }
+    // Formspree form endpoint: replace YOUR_FORM_ID with the ID from formspree.io (Forms → your form → Integration)
+    const FORM_ENDPOINT = 'https://formspree.io/f/xyeevbok';
+    if (location.protocol === 'file:' || FORM_ENDPOINT.includes('YOUR_FORM_ID')) { fallback(); return; }
+    if (form._gotcha && form._gotcha.value) { status.textContent = 'Sent.'; return; } // a bot filled the hidden field
     sendBtn.disabled = true; status.textContent = 'Launching…';
-    fetch('https://formsubmit.co/ajax/goog@googs.space', {
-      method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-      body: JSON.stringify({ name, email, reason, message, _subject: subject, _template: 'table', _captcha: 'false' }),
-    }).then(r => r.json()).then(d => {
-      if (String(d.success) !== 'true') throw new Error(d.message || 'not sent');
-      launch(); status.textContent = 'Sent. Your message is on its way to Goog.';
-      form.reset(); fuel();
-    }).catch(fallback).finally(() => { sendBtn.disabled = false; });
+    const data = new FormData();
+    data.append('name', name); data.append('email', email); data.append('reason', reason);
+    data.append('message', message); data.append('_subject', subject);
+    fetch(FORM_ENDPOINT, { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+      .then(async r => {
+        const d = await r.json().catch(() => ({}));
+        if (!r.ok) throw new Error((d.errors && d.errors.map(x => x.message).join(' ')) || `Formspree said ${r.status}.`);
+        launch(); status.textContent = 'Sent. Your message is on its way to Goog.';
+        form.reset();
+      })
+      .catch(err => fallback(err && err.message && !/fetch|network/i.test(err.message) ? err.message : ''))
+      .finally(() => { sendBtn.disabled = false; });
   });
 
   /* ================= footer ================= */
   $$('#mark span').forEach(s => s.addEventListener('click', () => { s.classList.remove('pop'); void s.offsetWidth; s.classList.add('pop'); setTimeout(() => s.classList.remove('pop'), 600); }));
 
   /* ================= the end: a black hole that swallows the page ================= */
-  const bh = $('#bh'), bx = bh.getContext('2d'), zone = $('#endZone'), endText = $('#endText'), endHint = $('.end-hint');
+  const mainEl = document.querySelector('main'), bh = $('#bh'), bx = bh.getContext('2d'), zone = $('#endZone'), endText = $('#endText'), endHint = $('.end-hint');
   if (!reduce) {
     let BW = 0, BH = 0, bp = 0, back = false, bhRaf = 0, last = 0, exitT = 0, exitR = 0, exitP = 0;
     const disk = Array.from({ length: 1100 }, () => { const r = 1.25 + Math.pow(Math.random(), 1.6) * 2.2; return { a: Math.random() * 6.283, r, sp: 1.6 / Math.pow(r, 1.5), s: Math.random() * 1.4 + .4 }; });
@@ -1046,17 +1038,17 @@ footer{padding-block:80px calc(120px + var(--sb))}
     function draw(t) {
       const dt = Math.min(50, t - (last || t)); last = t;
       if (!back) bp = progress();
-      const k = back ? Math.min(1, (t - exitT) / 1500) : 0, out = 1 - Math.pow(1 - k, 3);
+      const k = back ? Math.min(1, (t - exitT) / 1250) : 0, out = 1 - Math.pow(1 - k, 3);
       const p = back ? exitP : bp, e = p * p * (3 - 2 * p);
       const cx = BW / 2, cy = BH / 2, diag = Math.hypot(BW, BH) / 2;
-      const R = back ? exitR * (1 + out * 2.6) : 26 + Math.pow(p, 2.1) * diag * .9;
+      const R = back ? exitR * (1 + out * 2.8) : 26 + Math.pow(p, 1.9) * diag * 1.15;
       bh.style.opacity = back ? Math.max(0, 1 - Math.pow(out, 2.2)) : Math.min(1, p * 2.4);
       document.body.classList.toggle('in-hole', p > .45 && !back);
       hole = !back && p > .03 ? { x: cx, y: cy } : null;
       bx.clearRect(0, 0, BW, BH);
       bx.fillStyle = `rgba(2,3,10,${.35 + .6 * e})`; bx.fillRect(0, 0, BW, BH);
       // warp streaks: colour pulled into the hole, faster the deeper you go
-      const speed = (.0006 + p * .0045) * dt;
+      const speed = (.0008 + p * p * .007) * dt;
       bx.lineCap = 'round';
       for (const s of streaks) {
         s.d -= (back ? -2.2 : 1) * speed * (1.4 - s.d * .5);
@@ -1088,7 +1080,7 @@ footer{padding-block:80px calc(120px + var(--sb))}
       bx.shadowBlur = 0; bx.strokeStyle = 'rgba(255,230,190,.35)'; bx.lineWidth = Math.max(1, R * .012);
       bx.beginPath(); bx.ellipse(cx, cy, R * 1.24, R * 1.17, 0, 0, 6.283); bx.stroke(); bx.restore();
       // accretion disk: tilted, hot inside, brighter on the side coming toward us
-      const tilt = .24, spin = (.0009 + p * .004) * dt;
+      const tilt = .24, spin = (.0012 + p * p * .008) * dt;
       const plot = front => {
         for (const d of disk) {
           if ((Math.sin(d.a) >= 0) !== front) continue;
@@ -1110,7 +1102,7 @@ footer{padding-block:80px calc(120px + var(--sb))}
         // Doppler: the left side comes toward us and burns brighter
         const dg = bx.createRadialGradient(-R * 1.7, 0, 0, -R * 1.7, 0, R * 2.2);
         dg.addColorStop(0, 'rgba(255,245,225,.32)'); dg.addColorStop(1, 'rgba(255,245,225,0)');
-        bx.globalCompositeOperation = 'lighter'; bx.fillStyle = dg; bx.beginPath(); bx.arc(0, 0, R * 3.5, 0, 6.283); bx.fill();
+        bx.globalCompositeOperation = 'lighter'; bx.fillStyle = dg; bx.beginPath(); bx.arc(0, 0, R * 3.5, 0, 6.283); bx.arc(0, 0, R * 1.12, 0, 6.283, true); bx.fill('evenodd');
         bx.restore();
       };
       band(false);
@@ -1132,19 +1124,30 @@ footer{padding-block:80px calc(120px + var(--sb))}
         bx.globalCompositeOperation = 'destination-out'; bx.fillStyle = win;
         bx.beginPath(); bx.arc(cx, cy, R * .98, 0, 6.283); bx.fill();
         bx.globalCompositeOperation = 'source-over';
+        // shockwave and a flash of light as the portal opens
+        const sw = R * (1.2 + out * 1.4), sa = Math.max(0, 1 - k * 1.6);
+        if (sa > 0) {
+          bx.save(); bx.shadowColor = 'rgba(255,220,180,.9)'; bx.shadowBlur = 40;
+          bx.strokeStyle = `rgba(255,236,210,${sa})`; bx.lineWidth = 3 + 18 * sa;
+          bx.beginPath(); bx.arc(cx, cy, sw, 0, 6.283); bx.stroke(); bx.restore();
+          bx.fillStyle = `rgba(255,240,225,${Math.max(0, .55 - k * 2.2)})`; bx.fillRect(0, 0, BW, BH);
+        }
+        if (mainEl) mainEl.style.transform = `scale(${1 + .16 * (1 - out)})`;
       }
 
       // the line gets pulled in
       // fully covered: back to the top
-      if (!back && p > .9) {
+      if (!back && p > .8) {
         // through the portal: jump to the top behind it, then open the window
         back = true; exitT = t; exitR = R; exitP = p; hole = null;
+        if (mainEl) mainEl.style.transformOrigin = `50% ${innerHeight / 2}px`;
         bh.style.transition = 'none';
         scrollTo({ top: 0, behavior: 'instant' });
         document.body.classList.remove('in-hole');
       }
       if (back && k >= 1) {
         back = false; bp = 0; bh.style.opacity = 0;
+        if (mainEl) { mainEl.style.transform = ''; mainEl.style.transformOrigin = ''; }
         setTimeout(() => { bh.style.transition = ''; }, 50);
       }
       if (bp > 0 || back) bhRaf = requestAnimationFrame(draw); else { bhRaf = 0; last = 0; hole = null; bh.style.opacity = 0; document.body.classList.remove('in-hole'); }
