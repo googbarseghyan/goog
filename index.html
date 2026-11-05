@@ -4,9 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Welcome to Space!</title>
-<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png">
-<link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png">
-<link rel="apple-touch-icon" href="assets/icon-180.png">
+<link rel="icon" href="favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png?v=2">
+<link rel="apple-touch-icon" href="assets/icon-180.png?v=2">
 <meta name="description" content="Goog, graphic and UI designer. Space is calling. Goog is creating.">
 <meta name="theme-color" content="#EEF1FA">
 <script>(function(){var d=document.documentElement,t="light";try{var s=localStorage.getItem("goog-theme");if(s==="light"||s==="dark")t=s;}catch(e){}var q=/[?&]theme=(light|dark)/.exec(location.search);if(q)t=q[1];d.dataset.theme=t;})();</script>
@@ -337,8 +338,8 @@ fieldset.field legend{margin-bottom:12px}
 .send .arrow i{font-style:normal;font-size:24px;line-height:1}
 .send:hover .arrow i{animation:launch .8s cubic-bezier(.5,0,.6,1) infinite}
 @keyframes launch{45%{transform:translate(28px,-28px)}46%{transform:translate(-28px,28px)}100%{transform:none}}
-.status{margin:0;min-height:1.5em;font-size:15px;text-align:center;color:var(--glow-soft)}
-.note{margin:0;font-size:14px;color:var(--muted);text-align:center}
+.status{margin:0;min-height:1.5em;font-size:15px;text-align:left;color:var(--glow-soft)}
+.note{margin:0;font-size:14px;color:var(--muted);text-align:left}
 .rocket{position:fixed;left:0;top:0;z-index:90;font-size:40px;pointer-events:none;opacity:0}
 .rocket.go{animation:fly 1.5s cubic-bezier(.5,0,.8,.4) forwards}
 @keyframes fly{0%{opacity:1;transform:translate(var(--x0),var(--y0))}100%{opacity:0;transform:translate(calc(var(--x0) + 30vw),-20vh) rotate(-20deg) scale(.4)}}
@@ -366,7 +367,7 @@ footer{padding-block:56px calc(110px + var(--sb))}
 /* the end: scroll into a black hole, come out at the top */
 #bh{position:fixed;inset:0;width:100%;height:100%;z-index:60;pointer-events:none;opacity:0;transition:opacity .9s ease}
 .end-intro{position:relative;z-index:61;min-height:62vh;min-height:62svh;display:grid;place-items:center;align-content:center;gap:18px;padding:0 var(--gr) 0 var(--gl);text-align:center}
-.end-zone{position:relative;height:45vh}
+.end-zone{position:relative;height:110vh}
 .endtext{margin:0;max-width:18ch;font-size:clamp(26px,7vw,64px);font-weight:800;line-height:1.02;letter-spacing:-.035em;text-wrap:balance;background:linear-gradient(180deg,var(--paper),#9fb2ff);-webkit-background-clip:text;background-clip:text;color:transparent}
 .end-hint{margin:0;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--dim);animation:bob 2.2s ease-in-out infinite}
 .end-top{display:none;min-height:48px;align-items:center;padding:0 22px;border-radius:999px;background:var(--fill-2);text-decoration:none;font-weight:700}
@@ -431,10 +432,6 @@ footer{padding-block:56px calc(110px + var(--sb))}
 .sig:hover::before,.sig:focus-visible::before,.sig.lit::before{clip-path:circle(150% at 50% 52px)}
 .contact-intro{text-align:center}
 .contact-intro .turn{text-align:center}
-.field{text-align:center}
-.field label,.field legend{width:100%;text-align:center}
-.opts{justify-content:center}
-.field input,.field textarea{text-align:center}
 .mark{justify-content:center}
 .mail-row{justify-content:center}
 .foot-row{flex-direction:column;align-items:center;text-align:center}
@@ -1061,7 +1058,7 @@ footer{padding-block:56px calc(110px + var(--sb))}
   /* ================= the end: a black hole that swallows the page ================= */
   const mainEl = document.querySelector('main'), bh = $('#bh'), bx = bh.getContext('2d'), zone = $('#endZone'), endText = $('#endText'), endHint = $('.end-hint');
   if (!reduce) {
-    let BW = 0, BH = 0, bp = 0, back = false, bhRaf = 0, last = 0, exitT = 0, exitR = 0, exitP = 0, inT = 0, running = false, kin = 0;
+    let BW = 0, BH = 0, bp = 0, back = false, bhRaf = 0, last = 0, exitT = 0, exitR = 0, exitP = 0;
     const heroEl = $('.hero');
     const disk = Array.from({ length: innerWidth < 760 ? 650 : 1000 }, () => { const r = 1.25 + Math.pow(Math.random(), 1.6) * 2.2; return { a: Math.random() * 6.283, r, sp: 1.6 / Math.pow(r, 1.5), s: Math.random() * 1.4 + .4 }; });
     const HUES = [205, 230, 265, 300, 330, 20, 40, 190];
@@ -1070,7 +1067,7 @@ footer{padding-block:56px calc(110px + var(--sb))}
     size(); addEventListener('resize', size);
     function draw(t) {
       const dt = Math.min(50, t - (last || t)); last = t;
-      if (!back) { kin = Math.max(0, Math.min(1, (t - inT) / 2300)); bp = .82 * Math.pow(kin, 1.7); }
+      if (!back) bp = progress();
       const k = back ? Math.max(0, Math.min(1, (t - exitT) / 1250)) : 0, out = 1 - Math.pow(1 - k, 3);
       const p = back ? exitP : bp, e = p * p * (3 - 2 * p);
       const cx = BW / 2, cy = BH / 2, diag = Math.hypot(BW, BH) / 2;
@@ -1170,7 +1167,7 @@ footer{padding-block:56px calc(110px + var(--sb))}
 
       // the line gets pulled in
       // fully covered: back to the top
-      if (!back && kin >= 1) {
+      if (!back && p > .8) {
         // through the portal: jump to the top behind it, then open the window
         back = true; exitT = t; exitR = R; exitP = p; hole = null;
         if (heroEl) heroEl.style.transformOrigin = `50% ${innerHeight / 2}px`;
@@ -1179,29 +1176,15 @@ footer{padding-block:56px calc(110px + var(--sb))}
         document.body.classList.remove('in-hole');
       }
       if (back && k >= 1) {
-        back = false; bp = 0; running = false; bh.style.opacity = 0;
+        back = false; bp = 0; bh.style.opacity = 0;
         if (heroEl) { heroEl.style.transform = ''; heroEl.style.transformOrigin = ''; }
-        lock(false);
         setTimeout(() => { bh.style.transition = ''; }, 50);
       }
-      if (running) bhRaf = requestAnimationFrame(draw); else { bhRaf = 0; last = 0; hole = null; bh.style.opacity = 0; document.body.classList.remove('in-hole'); }
+      if (bp > 0 || back) bhRaf = requestAnimationFrame(draw); else { bhRaf = 0; last = 0; hole = null; bh.style.opacity = 0; document.body.classList.remove('in-hole'); }
     }
-    // pause scrolling while the sequence plays, so nothing fights it
-    const stop = e => e.preventDefault();
-    const keys = e => { if ([' ', 'PageDown', 'PageUp', 'ArrowDown', 'ArrowUp', 'Home', 'End'].includes(e.key)) e.preventDefault(); };
-    function lock(on) {
-      document.documentElement.style.overflow = on ? 'hidden' : '';
-      document.body.style.overflow = on ? 'hidden' : '';
-      const m = on ? addEventListener : removeEventListener;
-      m('wheel', stop, { passive: false }); m('touchmove', stop, { passive: false }); m('keydown', keys);
-    }
-    function start() {
-      if (running) return;
-      running = true; back = false; last = 0; kin = 0; bp = 0;
-      lock(true);
-      bhRaf = requestAnimationFrame(t0 => { inT = t0; draw(t0); });
-    }
-    new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) start(); }), { threshold: .5 }).observe(zone);
+    const progress = () => { const r = zone.getBoundingClientRect(); return Math.max(0, Math.min(1, (innerHeight - r.top) / r.height)); };
+    const wake = () => { if (!bhRaf && (progress() > 0 || back)) bhRaf = requestAnimationFrame(draw); };
+    addEventListener('scroll', wake, { passive: true }); wake();
   }
 })();
 </script>
