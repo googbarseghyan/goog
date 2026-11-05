@@ -3,7 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Goog's Space</title>
+<title>Welcome to Space!</title>
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="64x64" href="assets/icon-64.png?v=2">
+<link rel="apple-touch-icon" href="assets/icon-180.png?v=2">
 <meta name="description" content="Goog, graphic and UI designer. Space is calling. Goog is creating.">
 <meta name="theme-color" content="#EEF1FA">
 <script>(function(){var d=document.documentElement,t="light";try{var s=localStorage.getItem("goog-theme");if(s==="light"||s==="dark")t=s;}catch(e){}var q=/[?&]theme=(light|dark)/.exec(location.search);if(q)t=q[1];d.dataset.theme=t;})();</script>
@@ -260,7 +263,7 @@ section{padding-block:64px}
 .sig:hover .sig-go,.sig.lit .sig-go{transform:rotate(45deg) scale(1.1)}
 
 /* ---------- featured videos: a TV with channels ---------- */
-.tv-wrap{margin-top:40px;display:grid;gap:22px;justify-items:center}
+.tv-wrap{margin-top:108px;display:grid;gap:22px;justify-items:center}
 .tv{position:relative;width:100%;max-width:640px;padding:16px;border-radius:30px;background:linear-gradient(160deg,#2A2F55,#141834);box-shadow:0 40px 80px -30px rgba(0,0,0,.8),inset 0 2px 0 rgba(255,255,255,.08)}
 .antenna{position:absolute;left:50%;top:0;width:0;height:0}
 .antenna i{position:absolute;bottom:0;left:0;width:3px;height:90px;border-radius:3px;background:linear-gradient(var(--paper),#6b7299);transform-origin:bottom center}
@@ -375,7 +378,7 @@ footer{padding-block:56px calc(110px + var(--sb))}
 /* ---------- larger screens ---------- */
 @media(min-width:760px){
   body{font-size:17px}
-  section{padding-block:140px}
+  section{padding-block:88px}
   .hero{padding-bottom:170px}
   .hero-photo{width:clamp(200px,24vw,300px)}
   .gooog{--h:clamp(52px,6vw,84px);--ov:0px;gap:8px}
@@ -416,6 +419,34 @@ footer{padding-block:56px calc(110px + var(--sb))}
   html{scroll-behavior:auto}
   .js [data-r]{opacity:1;transform:none}
 }
+/* ---------- centred text everywhere except Welcome and Galaxies of Creation ---------- */
+#play .wrap > div:first-child,#internet .wrap > div:first-child,#videos .wrap > div:first-child{text-align:center}
+#play .h2,#internet .h2,#videos .h2,#contact .h2{margin-inline:auto}
+#play .lead,#internet .lead,#videos .lead,#contact .lead{margin-inline:auto}
+.swipe-hint{text-align:center}
+.sig{flex-direction:column;justify-content:center;gap:12px;padding:24px 18px 26px}
+.sig-text{flex:0 1 auto;text-align:center}
+.sig-go{position:absolute;right:14px;top:14px}
+.sig::before{clip-path:circle(0 at 50% 52px)}
+.sig:hover::before,.sig:focus-visible::before,.sig.lit::before{clip-path:circle(150% at 50% 52px)}
+.contact-intro{text-align:center}
+.contact-intro .turn{text-align:center}
+.field{text-align:center}
+.field label,.field legend{width:100%;text-align:center}
+.opts{justify-content:center}
+.field input,.field textarea{text-align:center}
+.mark{justify-content:center}
+.mail-row{justify-content:center}
+.foot-row{flex-direction:column;align-items:center;text-align:center}
+.socials{justify-content:center}
+.legal{flex-direction:column;align-items:center;text-align:center}
+@media(min-width:760px){
+  .sig{flex-direction:row;padding:22px 110px}
+  .sig-go{right:30px;top:50%;margin-top:-27px}
+  .sig::before{clip-path:circle(0 at 50% 50%)}
+  .sig:hover::before,.sig:focus-visible::before,.sig.lit::before{clip-path:circle(150% at 50% 50%)}
+  .legal{gap:6px}
+}
 </style>
 </head>
 <body>
@@ -435,7 +466,7 @@ footer{padding-block:56px calc(110px + var(--sb))}
     <li><a href="#top"><span class="star"></span>Space</a></li>
     <li><a href="#welcome"><span class="star"></span>Welcome</a></li>
     <li><a href="#play"><span class="star"></span>Play</a></li>
-    <li><a href="#services"><span class="star"></span>What I Do</a></li>
+    <li><a href="#services"><span class="star"></span>Galaxies of Creation</a></li>
     <li><a href="#internet"><span class="star"></span>Around the Internet</a></li>
     <li><a href="#videos"><span class="star"></span>Featured Videos</a></li>
     <li><a href="#contact"><span class="star"></span>Let's Create Something</a></li>
@@ -456,7 +487,6 @@ footer{padding-block:56px calc(110px + var(--sb))}
           <span class="flash" id="flash" aria-hidden="true"></span>
           <span class="tap" aria-hidden="true">Tap</span>
         </figure>
-        <div class="word outline" id="outline" aria-hidden="true">GOOG</div>
       </div>
       <h1>Space is calling. <b>Goog is creating.</b></h1>
     </div>
@@ -520,11 +550,11 @@ footer{padding-block:56px calc(110px + var(--sb))}
   </section>
 
   <!-- WHAT I DO -->
-  <section class="services" id="services" data-name="What I Do">
+  <section class="services" id="services" data-name="Galaxies of Creation">
     <div class="paper" aria-hidden="true"></div>
     <div class="wrap">
       <div class="svc-list" id="svcList">
-        <div class="svc-intro" data-r><h2 class="h2">What I Do</h2></div>
+        <div class="svc-intro" data-r><h2 class="h2">Galaxies of Creation</h2></div>
         <div class="svc open" data-r><div class="svc-art" aria-hidden="true"><img src="assets/art/tangle.jpg" alt="" loading="lazy"></div>
           <button class="svc-head" type="button" aria-expanded="true" aria-controls="s1"><span class="svc-name">Brand Identity</span><span class="svc-plus" aria-hidden="true"></span></button>
           <div class="svc-body" id="s1"><div><p>Building visual identities that give brands their own character.</p></div></div></div>
@@ -786,9 +816,10 @@ footer{padding-block:56px calc(110px + var(--sb))}
   addEventListener('scroll', prog, { passive: true }); prog();
 
   /* ================= hero: photo floats, the letters behind it turn to outline ================= */
-  const stage = $('#stage'), photo = $('#photo'), outline = $('#outline'), hero = $('.hero');
+  const stage = $('#stage'), photo = $('#photo'), outline = null, hero = $('.hero');
   let fx = 0, fy = 0, tx = 0, ty = 0;
   function clip() {
+    if (!outline) return;
     const s = stage.getBoundingClientRect(), p = photo.getBoundingClientRect();
     outline.style.clipPath = `inset(${p.top - s.top}px ${s.right - p.right}px ${s.bottom - p.bottom}px ${p.left - s.left}px round 28px)`;
   }
